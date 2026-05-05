@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpaceNest | レンタルスペース予約サイト</title>
+    <style>
+      :root {
+        --bg: #f6f8ff;
+        --card: #ffffff;
+        --text: #1f2430;
+        --sub: #5e667a;
+        --accent: #4f6bff;
+        --accent-dark: #3e56d6;
+        --line: #dce2f3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1080px, 92%);
+        margin: 0 auto;
+      }
+
+      header {
+        background: linear-gradient(135deg, #eff2ff 0%, #dfe7ff 100%);
+        padding-bottom: 60px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        font-weight: 800;
+        font-size: 1.2rem;
+        letter-spacing: 0.02em;
+      }
+
+      .cta-btn,
+      .search-btn {
+        border: none;
+        background: var(--accent);
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .cta-btn:hover,
+      .search-btn:hover {
+        background: var(--accent-dark);
+      }
+
+      .hero {
+        display: grid;
+        gap: 28px;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        margin: 8px 0;
+        line-height: 1.3;
+      }
+
+      .hero p {
+        color: var(--sub);
+        margin: 0;
+      }
+
+      .search-card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 16px;
+        display: grid;
+        gap: 12px;
+      }
+
+      .search-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: #fff;
+      }
+
+      main {
+        padding: 52px 0 64px;
+      }
+
+      h2 {
+        margin: 0 0 14px;
+        font-size: 1.5rem;
+      }
+
+      .section-lead {
+        color: var(--sub);
+        margin: 0 0 22px;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      .card .thumb {
+        height: 140px;
+        background: linear-gradient(130deg, #bfd0ff, #eef2ff);
+      }
+
+      .card-body {
+        padding: 14px;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 999px;
+        background: #edf1ff;
+        color: var(--accent-dark);
+        font-size: 0.8rem;
+        font-weight: 700;
+      }
+
+      .meta {
+        font-size: 0.9rem;
+        color: var(--sub);
+      }
+
+      .price {
+        font-size: 1.1rem;
+        font-weight: 800;
+        margin-top: 6px;
+      }
+
+      .flow {
+        margin-top: 44px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 20px;
+      }
+
+      .flow ol {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .flow li + li {
+        margin-top: 8px;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 22px 0;
+        color: var(--sub);
+        font-size: 0.9rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="topbar">
+          <div class="logo">SpaceNest</div>
+          <button class="cta-btn">オーナー登録</button>
+        </div>
+
+        <section class="hero">
+          <div>
+            <p>会議・撮影・パーティーに使える</p>
+            <h1>ぴったりのレンタルスペースを、
+              1分で見つけよう。</h1>
+            <p>エリア・用途・人数で探して、空き状況をそのままオンライン予約。</p>
+          </div>
+
+          <form class="search-card">
+            <div class="search-grid">
+              <input type="text" placeholder="エリア（例：渋谷・梅田）" />
+              <select>
+                <option>利用目的を選択</option>
+                <option>会議・セミナー</option>
+                <option>撮影・収録</option>
+                <option>パーティー</option>
+                <option>ヨガ・ワークショップ</option>
+              </select>
+              <input type="date" />
+              <select>
+                <option>人数</option>
+                <option>1〜5名</option>
+                <option>6〜20名</option>
+                <option>21〜50名</option>
+              </select>
+            </div>
+            <button class="search-btn" type="button">空きスペースを検索</button>
+          </form>
+        </section>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section>
+          <h2>人気のスペース</h2>
+          <p class="section-lead">駅チカ・設備充実・レビュー高評価のスペースをピックアップ。</p>
+
+          <div class="cards">
+            <article class="card">
+              <div class="thumb"></div>
+              <div class="card-body">
+                <span class="badge">会議向け</span>
+                <h3>渋谷ミーティングラウンジ</h3>
+                <p class="meta">渋谷駅 徒歩4分・最大16名・Wi-Fi/モニター完備</p>
+                <p class="price">¥1,980 / 時間</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"></div>
+              <div class="card-body">
+                <span class="badge">撮影向け</span>
+                <h3>自然光スタジオ Minamo</h3>
+                <p class="meta">中目黒駅 徒歩6分・最大12名・背景紙/照明機材あり</p>
+                <p class="price">¥3,500 / 時間</p>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb"></div>
+              <div class="card-body">
+                <span class="badge">パーティー向け</span>
+                <h3>大阪キッチン付きスペース</h3>
+                <p class="meta">梅田駅 徒歩7分・最大20名・キッチン/プロジェクター</p>
+                <p class="price">¥2,800 / 時間</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="flow">
+          <h2>予約までの流れ</h2>
+          <ol>
+            <li>条件で検索して、気になるスペースを比較。</li>
+            <li>カレンダーで空き時間を確認し、オンライン決済。</li>
+            <li>予約確定後、メッセージで当日の入室案内を受け取る。</li>
+          </ol>
+        </section>
+      </div>
+    </main>
+
+    <footer>© 2026 SpaceNest. All rights reserved.</footer>
+  </body>
+</html>
